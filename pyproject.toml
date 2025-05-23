@@ -1,0 +1,92 @@
+################################################################################
+# Build Configuration
+################################################################################
+
+[build-system]
+build-backend = "hatchling.build"
+requires = ["hatchling", "hatch-vcs"]
+
+################################################################################
+# Project Configuration
+################################################################################
+
+[project]
+name = "ruamelfmt"
+
+dynamic = ["version"]
+
+description = "Automatically format YAML files as ruamel.yaml does"
+authors = [
+    { name = "Yuvi", email = "yuvipanda@gmail.com" },
+]
+license = "BSD-3-Clause"
+readme = {"file" = "README.md", "content-type" = "text/markdown"}
+# Please consult https://pypi.org/classifiers/ for a full list.
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: BSD License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3 :: Only",
+]
+# TODO: add keywords
+keywords = []
+
+dependencies = [
+    "ruamel.yaml"
+]
+
+[project.urls]
+Homepage = "https://github.com/yuvipanda/ruamelfmt"
+"Source Code" = "https://github.com/yuvipanda/ruamelfmt"
+"Bug Tracker" = "https://github.com/yuvipanda/ruamelfmt/issues"
+Documentation = "https://ruamelfmt.readthedocs.io"
+Download = "https://pypi.org/project/ruamelfmt/#files"
+
+[project.optional-dependencies]
+dev = [
+    "hatch",
+    "pre-commit",
+]
+
+################################################################################
+# Tool Configuration
+################################################################################
+
+[tool.hatch.build]
+only-packages = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ruamelfmt"]
+[tool.hatch.build.hooks.vcs]
+version-file = "src/ruamelfmt/_version.py"
+
+[tool.hatch.version]
+source = "vcs"
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["raises"]
+
+[tool.coverage.paths]
+source = [
+    "src/ruamelfmt",
+    "*/site-packages/ruamelfmt",
+]
+
+[tool.coverage.run]
+branch = true
+parallel = true
+omit = [
+    "src/ruamelfmt/_version.py",
+]
+
+[tool.coverage.report]
+exclude_lines = ["pragma: no cover"]
+precision = 2
+
+[tool.pydoclint]
+style = "google"  # TODO: Other styles are possible here, like 'numpy'
+arg-type-hints-in-docstring = false
+check-return-types = false
+check-yield-types = false
+exclude = "_version.py"
