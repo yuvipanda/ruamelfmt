@@ -1,0 +1,5 @@
+- id: ruamelfmt
+  language: python
+  entry: python3 -m ruamelfmt
+  name: Autoformat yaml files with ruamel.yaml style
+  files: .*ya?ml
