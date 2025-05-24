@@ -32,7 +32,7 @@ following in your `pre-commit
 ```yaml
 repos:
 - repo: https://github.com/yuvipanda/ruamelfmt
-  rev: 7b4cf00cefbdbd0d1289226b9aa04f5e94fc5409
+  rev: v1.0.0
   hooks:
   - id: ruamelfmt
     # Optionally, exclude any directories that you don't want this to touch
