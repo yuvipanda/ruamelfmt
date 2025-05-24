@@ -1,12 +1,20 @@
-import sys
+import argparse
 from ruamel.yaml import YAML
 
-yaml = YAML(typ='rt')
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--line-length', default=120, type=int)
+    parser.add_argument('filepath')
+    args = parser.parse_args()
 
-path = sys.argv[1]
+    yaml = YAML(typ='rt')
+    yaml.width = args.line_length
 
-with open(path) as f:
-    data = yaml.load(f)
+    with open(args.filepath) as f:
+        data = yaml.load(f)
 
-with open(path, 'w') as f:
-    yaml.dump(data, f)
+    with open(args.filepath, 'w') as f:
+        yaml.dump(data, f)
+
+if __name__ == '__main__':
+    main()
