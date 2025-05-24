@@ -1,9 +1,10 @@
 import argparse
+import sys
 from ruamel.yaml import YAML
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--line-length', default=120, type=int)
+    parser.add_argument('--line-length', default=sys.maxsize, type=int)
     parser.add_argument('filepath', nargs='+')
     args = parser.parse_args()
 
