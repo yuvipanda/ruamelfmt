@@ -40,3 +40,7 @@ repos:
 ```
 
 Run it once so it reformats all YAML files to its structure, and then you are good to go.
+
+## Known limitations
+
+1. Does not support YAML multi-documents, but support could be added if desired.
