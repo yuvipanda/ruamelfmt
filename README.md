@@ -9,7 +9,7 @@ repository that *humans* write, but you also want to be able to write scripts
 against your YAML for mass refactorings. This requires:
 
 1. An autoformatter that keeps a consistent but human readable style for your YAML documents
-2. A round-trip capable YAML parser that you can use to write scripts for mass automated editing
+1. A round-trip capable YAML parser that you can use to write scripts for mass automated editing
    of your YAML documents
 
 Without (2), you are stuck manually hand-editing your YAML files. And without (1), you will never
@@ -27,7 +27,7 @@ that satisfies (2). This project uses was built to satisfy (1).
 ## Using with `pre-commit`
 
 This package is designed to work well with [pre-commit](https://pre-commit.com/). You can put the
-following in your `pre-commit
+following in your \`pre-commit
 
 ```yaml
 repos:
